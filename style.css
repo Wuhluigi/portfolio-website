@@ -1,5 +1,6 @@
 /* GENERAL STYLES */
-body {
+body 
+{
   background-color: #0f0f0f;
   color: white;
   font-family: 'Inter', sans-serif;
@@ -100,4 +101,52 @@ body {
     width: 360px;
     height: 360px;
   }
+}
+
+/* Center the whole logo slider */
+.logo-slider {
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+}
+
+.logo-track {
+  display: flex;
+  animation: scrollLoop 10s linear infinite;
+  width: max-content;
+}
+
+.logo-group {
+  display: flex;
+}
+
+.client-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  padding: 0 2rem;
+}
+
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+#education {
+  scroll-margin-top: 100px; /* adjusts scroll offset for navbar */
+}
+
+.bg-black {
+  background-color: #000 !important;
+}
+
+.bg-dark {
+  background-color: #1a1a1a !important;
 }
