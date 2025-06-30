@@ -150,3 +150,8 @@ body
 .bg-dark {
   background-color: #1a1a1a !important;
 }
+
+.text-light {
+  color: #cccccc !important;
+}
+
