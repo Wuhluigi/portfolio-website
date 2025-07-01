@@ -155,3 +155,62 @@ body
   color: #cccccc !important;
 }
 
+.scrolling-wrapper {
+  scroll-snap-type: x mandatory;
+}
+
+.skill-category-box {
+  min-width: 250px;
+  scroll-snap-align: start;
+}
+
+.tech-box {
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-logo {
+  position: absolute;
+  opacity: 0.1;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Tech Box Hover Pop Effect */
+.tech-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.tech-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+/* Faint Background Logo Style */
+.tech-box img.bg-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  max-width: 100px;
+  opacity: 0.1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.tech-box:hover img.bg-logo {
+  opacity: 0.15;
+}
