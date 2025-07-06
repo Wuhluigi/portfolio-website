@@ -17,12 +17,13 @@
   <link rel="stylesheet" href="style.css">
 </a>
 
+
 </head>
 <body>
 
 <!-- Trimmed & Rounded Navbar -->
 <div class="navbar-wrapper">
-  <nav class="navbar navbar-expand-lg sticky-top custom-navbar rounded-4">
+  <nav class="navbar navbar-expand-lg fixed-navbar rounded-4">
     <div class="container-fluid justify-content-between align-items-center px-4">
       <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon text-white"></span>
@@ -49,6 +50,7 @@
     </div>
   </nav>
 </div>
+
 
 <!-- Hero Section -->
 <section class="py-5">
@@ -91,12 +93,15 @@
 
 
 
+
 <!-- Education Section -->
 <section id="education" class="bg-white text-dark py-5">
   <div class="container">
     <h2 class="text-center font-raleway mb-5">Education</h2>
 
     <div class="d-flex flex-column gap-4">
+
+      
 
       <!-- STI College -->
       <div class="p-4 rounded-4 bg-light shadow border d-flex gap-4 align-items-center shadow-lg flex-column flex-md-row">
@@ -240,22 +245,25 @@
   <div class="container">
     <h2 class="text-center font-raleway mb-5">Skills</h2>
 
-    <div class="scrolling-wrapper d-flex gap-4 overflow-auto pb-3">
+    <div class="scrolling-wrapper d-flex gap-4 overflow-auto pb-3 position-relative">
       <!-- Frontend -->
       <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
         <h5 class="fw-bold mb-3">Frontend</h5>
-        <div class="d-flex flex-column gap-3">
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+        <div class="vertical-slideshow">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/html.png');">
+            <span class="fw-bold">HTML</span>
+          </div>
+          <div class="tech-box" style="background-image: url('assets/softwarebg/bs5.png');">
             <span class="fw-bold">Bootstrap 5</span>
-            <img src="assets/bootstrap-logo.png" alt="Bootstrap" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/tailwind.png');">
             <span class="fw-bold">Tailwind CSS</span>
-            <img src="assets/tailwind-logo.png" alt="Tailwind" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/shadcn.png');">
             <span class="fw-bold">Shadcn UI</span>
-            <img src="assets/shadcn-logo.png" alt="Shadcn UI" class="bg-logo" />
+          </div>
+          <div class="tech-box" style="background-image: url('assets/softwarebg/nextjs.png');">
+            <span class="fw-bold">Next.JS</span>
           </div>
         </div>
       </div>
@@ -263,14 +271,21 @@
       <!-- Backend -->
       <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
         <h5 class="fw-bold mb-3">Backend</h5>
-        <div class="d-flex flex-column gap-3">
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+        <div class="vertical-slideshow">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/nodejs.png');">
             <span class="fw-bold">Node.js</span>
-            <img src="assets/nodejs-logo.png" alt="Node.js" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/php.png');">
+            <span class="fw-bold">PHP</span>
+          </div>
+          <div class="tech-box" style="background-image: url('assets/softwarebg/python.jpg');">
+            <span class="fw-bold">Python</span>
+          </div>
+          <div class="tech-box" style="background-image: url('assets/softwarebg/java.webp');">
+            <span class="fw-bold">Java</span>
+          </div>
+          <div class="tech-box" style="background-image: url('assets/softwarebg/supabase.png');">
             <span class="fw-bold">Supabase</span>
-            <img src="assets/supabase-logo.png" alt="Supabase" class="bg-logo" />
           </div>
         </div>
       </div>
@@ -279,85 +294,94 @@
       <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
         <h5 class="fw-bold mb-3">Database</h5>
         <div class="d-flex flex-column gap-3">
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/postgresql.png');">
             <span class="fw-bold">PostgreSQL</span>
-            <img src="assets/postgresql-logo.png" alt="PostgreSQL" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/mysql.png');">
             <span class="fw-bold">MySQL</span>
-            <img src="assets/mysql-logo.png" alt="MySQL" class="bg-logo" />
           </div>
         </div>
       </div>
 
       <!-- Deployment & DevOps -->
-      <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
-        <h5 class="fw-bold mb-3">Deployment & DevOps</h5>
+       <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
+        <h5 class="fw-bold mb-3">Deploy / DevOps</h5>
         <div class="d-flex flex-column gap-3">
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
-            <span class="fw-bold">Netlify</span>
-            <img src="assets/netlify-logo.png" alt="Netlify" class="bg-logo" />
+          <div class="tech-box" style="background-image: url('assets/softwarebg/github.png');">
+            <span class="fw-bold">GitHub</span>
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/git.png');">
+            <span class="fw-bold">Git</span>
+          </div>
+          <div class="tech-box" style="background-image: url('assets/softwarebg/netlify.png');">
+            <span class="fw-bold">Netlify</span>
+          </div>
+          <div class="tech-box" style="background-image: url('assets/softwarebg/cpanel.png');">
             <span class="fw-bold">cPanel</span>
-            <img src="assets/cpanel-logo.png" alt="cPanel" class="bg-logo" />
           </div>
         </div>
       </div>
 
       <!-- Tools & Productivity -->
       <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
-        <h5 class="fw-bold mb-3">Tools & Productivity</h5>
-        <div class="d-flex flex-column gap-3">
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+        <h5 class="fw-bold mb-3">Tools / Productivity</h5>
+        <div class="vertical-slideshow">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/figma.png');">
             <span class="fw-bold">Figma</span>
-            <img src="assets/figma-logo.png" alt="Figma" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
-            <span class="fw-bold">Excel</span>
-            <img src="assets/excel-logo.png" alt="Excel" class="bg-logo" />
+          <div class="tech-box" style="background-image: url('assets/softwarebg/workspace.webp');">
+            <span class="fw-bold">Google Workspace</span>
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/adsense.png');">
+            <span class="fw-bold">Google Adsense</span>
+          </div>
+          <div class="tech-box" style="background-image: url('assets/softwarebg/office.png');">
             <span class="fw-bold">Microsoft Office</span>
-            <img src="assets/office-logo.png" alt="Office" class="bg-logo" />
           </div>
         </div>
       </div>
 
       <!-- Project Management -->
       <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
-        <h5 class="fw-bold mb-3">Project Management</h5>
+        <h5 class="fw-bold mb-3">Management Tools</h5>
         <div class="d-flex flex-column gap-3">
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box rounded-4 border p-3" style="background-image: url('assets/softwarebg/asana.png');">
             <span class="fw-bold">Asana</span>
-            <img src="assets/asana-logo.png" alt="Asana" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box rounded-4 border p-3" style="background-image: url('assets/softwarebg/clickup.png');">
             <span class="fw-bold">ClickUp</span>
-            <img src="assets/clickup-logo.png" alt="ClickUp" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box rounded-4 border p-3" style="background-image: url('assets/softwarebg/slack.png');">
             <span class="fw-bold">Slack</span>
-            <img src="assets/slack-logo.png" alt="Slack" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box rounded-4 border p-3" style="background-image: url('assets/softwarebg/trello.png');">
             <span class="fw-bold">Trello</span>
-            <img src="assets/trello-logo.png" alt="Trello" class="bg-logo" />
+          </div>
+        </div>
+      </div>
+
+       <!-- CMS -->
+      <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
+        <h5 class="fw-bold mb-3">CMS</h5>
+        <div class="d-flex flex-column gap-3">
+          <div class="tech-box" style="background-image: url('assets/softwarebg/wordpress.png');">
+            <span class="fw-bold">WordPress</span>
+          </div>
+          <div class="tech-box" style="background-image: url('assets/softwarebg/shopify.png');">
+            <span class="fw-bold">Shopify</span>
           </div>
         </div>
       </div>
 
       <!-- Ticketing / Monitoring -->
       <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
-        <h5 class="fw-bold mb-3">Ticketing / Monitoring</h5>
+        <h5 class="fw-bold mb-3">Ticketing Server</h5>
         <div class="d-flex flex-column gap-3">
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box rounded-4 border p-3" style="background-image: url('assets/softwarebg/zoho.png');">
             <span class="fw-bold">Zoho</span>
-            <img src="assets/zoho-logo.png" alt="Zoho" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box rounded-4 border p-3" style="background-image: url('assets/softwarebg/zenoti.png');">
             <span class="fw-bold">Zenoti</span>
-            <img src="assets/zenoti-logo.png" alt="Zenoti" class="bg-logo" />
           </div>
         </div>
       </div>
@@ -366,13 +390,11 @@
       <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
         <h5 class="fw-bold mb-3">Design & Media</h5>
         <div class="d-flex flex-column gap-3">
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box rounded-4 border p-3" style="background-image: url('assets/softwarebg/adobe.jpg');">
             <span class="fw-bold">Adobe Creative Suite</span>
-            <img src="assets/adobe-logo.png" alt="Adobe" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box rounded-4 border p-3" style="background-image: url('assets/softwarebg/canva.png');">
             <span class="fw-bold">Canva</span>
-            <img src="assets/canva-logo.png" alt="Canva" class="bg-logo" />
           </div>
         </div>
       </div>
@@ -381,13 +403,11 @@
       <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
         <h5 class="fw-bold mb-3">Game Development</h5>
         <div class="d-flex flex-column gap-3">
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box rounded-4 border p-3" style="background-image: url('assets/softwarebg/unity.png');">
             <span class="fw-bold">Unity3D</span>
-            <img src="assets/unity-logo.png" alt="Unity" class="bg-logo" />
           </div>
-          <div class="tech-box position-relative bg-white rounded-4 border p-3">
+          <div class="tech-box rounded-4 border p-3" style="background-image: url('assets/softwarebg/csharp.png');">
             <span class="fw-bold">C#</span>
-            <img src="assets/csharp-logo.png" alt="C#" class="bg-logo" />
           </div>
         </div>
       </div>
@@ -404,6 +424,18 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.fixed-navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+</script>
+
 <!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
