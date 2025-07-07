@@ -3,6 +3,7 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Raleway:ital,wght@0,300&display=swap" rel="stylesheet">
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="assets/pepe.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Luis Gerard | Portfolio</title>
@@ -16,7 +17,6 @@
   <!-- Your Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </a>
-
 
 </head>
 <body>
@@ -35,7 +35,7 @@
           <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
           <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
           <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#project">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Certifications</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
@@ -415,6 +415,171 @@
   </div>
 </section>
 
+<!-- Spacer below -->
+<section class="bg-white py-5">
+</section>
+
+<section id="project" class="bg-dark text-white py-5">
+  <div class="container">
+    <h2 class="text-center font-raleway mb-5">Projects</h2>
+
+    <div class="row justify-content-center g-4">
+      <!-- Programming Box -->
+      <div class="col-md-5">
+        <div class="project-box rounded-4 shadow-sm position-relative text-center">
+          <img src="assets/programming.gif" alt="Programming Projects" class="project-bg rounded-4">
+          <div class="project-content position-absolute top-50 start-50 translate-middle text-white text-shadow">
+            <h3 class="fw-bold mb-3">Programming</h3>
+            <p class="mb-3">Web apps, games, and tools I’ve built using modern tech like React, Node.js, and Unity.</p>
+            <!-- Button triggers modal -->
+            <button type="button" class="btn btn-glow" data-bs-toggle="modal" data-bs-target="#programmingModal">
+              View Projects
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editing Box -->
+      <div class="col-md-5">
+        <div class="project-box rounded-4 shadow-sm position-relative text-center bg-gradient">
+          <img src="assets/editting.gif" alt="editting Projects" class="project-bg rounded-4">
+          <div class="project-content position-absolute top-50 start-50 translate-middle text-white text-shadow">
+            <h3 class="fw-bold mb-3">Editing</h3>
+            <p class="mb-3">Creative video edits, motion graphics, and visual storytelling for brands and creators.</p>
+            <!-- Button triggers modal -->
+            <button type="button" class="btn btn-glow" data-bs-toggle="modal" data-bs-target="#editingModal">
+              View Projects
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Programming Modal -->
+<div class="modal fade" id="programmingModal" tabindex="-1" aria-labelledby="programmingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-white rounded-4">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="programmingModalLabel">Programming Projects</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body" style="max-height: 500px; overflow-y: auto;">
+        <!-- Programming Projects List -->
+        <div id="programmingProjectList">
+          <div class="row g-4">
+            <!-- RSCInternHub Box -->
+            <div class="col-md-12">
+              <div class="project-box rounded-4 shadow-sm text-white position-relative overflow-hidden"
+                   style="background: url('assets/Internhub/login.png') center/cover no-repeat; height: 250px; cursor: pointer;"
+                   onclick="showInternhubDetails()">
+                <div class="overlay position-absolute top-0 start-0 w-100 h-100"
+                     style="background: rgba(0, 0, 0, 0.4);"></div>
+                <div class="content position-relative z-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                  <h4 class="fw-bold mb-0">RSCInternHub</h4>
+                  <button class="btn btn-glow mt-2">View Details</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pitong Gabi Box -->
+            <div class="col-md-12">
+              <div class="project-box rounded-4 shadow-sm text-white position-relative overflow-hidden"
+                   style="background: #1a1a1a url('assets/unity-logo.png') center/contain no-repeat; height: 250px; cursor: pointer;">
+                <div class="overlay position-absolute top-0 start-0 w-100 h-100"
+                     style="background: rgba(0, 0, 0, 0.4);"></div>
+                <div class="content position-relative z-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                  <h4 class="fw-bold mb-0">Coming Soon</h4>
+                  <button class="btn btn-glow mt-2">View Details</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coming Soon Box -->
+            <div class="col-md-12">
+              <div class="project-box rounded-4 shadow-sm text-white position-relative overflow-hidden"
+                   style="background: #2c2c2c; height: 250px;">
+                <div class="content position-relative z-2 h-100 d-flex flex-column justify-content-center align-items-center">
+                  <h4 class="fw-bold text-light">Coming Soon...</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Internhub Details (Fixed, Not Scrollable) -->
+        <div id="internhubDetails" class="d-none">
+          <!-- Slideshow -->
+          <div id="internhubCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+            <div class="carousel-inner rounded-4">
+              <div class="carousel-item active">
+                <img src="assets/Internhub/login.png" class="d-block w-100 rounded-4" alt="Internhub Login">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/Internhub/trainee.png" class="d-block w-100 rounded-4" alt="Internhub Trainee">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#internhubCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#internhubCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <!-- Summary -->
+          <div class="text-white mb-3">
+            <h5 class="fw-bold mb-2">RSCInternHub</h5>
+            <p class="small mb-0">
+              A web-based internal management tool for interns, designed to streamline tasks like scheduling, performance tracking, and communication.
+            </p>
+          </div>
+
+          <!-- Buttons -->
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-glow btn-sm" onclick="showProgrammingList()">&larr; Back</button>
+            <a href="https://rscinternhub.netlify.app/" class="btn btn-glow btn-sm" target="_blank">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Editing Modal -->
+<div class="modal fade" id="editingModal" tabindex="-1" aria-labelledby="editingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-white rounded-4">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="editingModalLabel">Editing Projects</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>This is where details of your video editing projects will appear. Add samples, thumbnails, and portfolio links here.</p>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Spacer below "Project" -->
+<section class="bg-dark body py-5">
+</section>
+
+
+
+
 <style>
   .min-w-300 {
     min-width: 300px;
@@ -434,6 +599,19 @@
       navbar.classList.remove('scrolled');
     }
   });
+</script>
+
+<script>
+ function showInternhubDetails() {
+  document.getElementById('programmingProjectList').classList.add('d-none');
+  document.getElementById('internhubDetails').classList.remove('d-none');
+}
+
+function showProgrammingList() {
+  document.getElementById('internhubDetails').classList.add('d-none');
+  document.getElementById('programmingProjectList').classList.remove('d-none');
+}
+
 </script>
 
 <!-- Bootstrap Icons -->
