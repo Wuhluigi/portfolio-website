@@ -167,6 +167,8 @@ body {
 .skill-category-box {
   min-width: 250px;
   scroll-snap-align: start;
+  background-color: rgba(255, 255, 255, 0.6) !important; /* White with 60% opacity */
+  backdrop-filter: blur(3px); /* Optional: Adds a glassy effect */
 }
 
 .tech-box {
@@ -348,3 +350,27 @@ body {
 .carousel-control-next-icon:hover {
   border-color: #000000; /* Darker on hover */
 }
+
+#education-canvas,
+#skills-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Canvas stays behind */
+  pointer-events: auto; /* Don’t block interaction */
+  background: white; /* White background */
+}
+
+section {
+  position: relative;
+  z-index: 1; /* Content stays above canvas */
+}
+
+#skills {
+  position: relative;
+  overflow: hidden;
+  background: transparent; /* ✅ No solid background */
+}
+

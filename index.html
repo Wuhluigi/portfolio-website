@@ -96,31 +96,33 @@
 
 
 
-
 <!-- Education Section -->
-<section id="education" class="bg-white text-dark py-5">
-  <div class="container">
+<section id="education" class="text-dark py-5 position-relative overflow-hidden">
+
+  <!-- Dynamic Particle Background -->
+  <canvas id="education-canvas"></canvas>
+
+  <div class="container position-relative" style="z-index: 1;">
     <h2 class="text-center font-raleway mb-5">Education</h2>
 
     <div class="d-flex flex-column gap-4">
-
       
+   <!-- STI College -->
+<div class="p-4 rounded-4 shadow border d-flex gap-4 align-items-center shadow-lg flex-column flex-md-row" style="background: rgba(248, 249, 250, 0.6);  backdrop-filter: blur(3px);">
+  <img src="assets/STI.png" alt="STI Logo" style="height: 100px; width: auto;" />
+  <div class="d-flex flex-column flex-md-row justify-content-between w-100 gap-4">
+    <div>
+      <h4 class="fw-bold mb-1">STI College Ortigas-Cainta</h4>
+      <p class="font-ibm mb-1">Bachelor of Science in Computer Engineering</p>
+      <p class="text-secondary small mb-2">2021 – Present</p>
+      <p class="mb-0">Granted Open Scholar</p>
+    </div>
+  </div>
+</div>
 
-      <!-- STI College -->
-      <div class="p-4 rounded-4 bg-light shadow border d-flex gap-4 align-items-center shadow-lg flex-column flex-md-row">
-        <img src="assets/STI.png" alt="STI Logo" style="height: 100px; width: auto;" />
-        <div class="d-flex flex-column flex-md-row justify-content-between w-100 gap-4">
-          <div>
-            <h4 class="fw-bold mb-1">STI College Ortigas-Cainta</h4>
-            <p class="font-ibm mb-1">Bachelor of Science in Computer Engineering</p>
-            <p class="text-secondary small mb-2">2021 – Present</p>
-            <p class="mb-0">Granted Open Scholar</p>
-          </div>
-        </div>
-      </div>
-
- <!-- FCS -->
-<div class="p-4 rounded-4 bg-light shadow border d-flex gap-4 align-items-center shadow-lg flex-column flex-md-row">
+      <!-- Faith Christian School -->
+<div class="p-4 rounded-4 shadow border d-flex gap-4 align-items-center shadow-lg flex-column flex-md-row" 
+     style="background: rgba(248, 249, 250, 0.6);  backdrop-filter: blur(3px);">
   <!-- Logo -->
   <div class="flex-shrink-0 d-flex align-items-start justify-content-center" style="min-width: 150px;">
     <img src="assets/fcs.png" alt="FCS Logo" style="height: 130px; width: auto;" />
@@ -154,13 +156,12 @@
 
   </div>
 </div>
-    </div>
-  </div>
+
+
+  <!-- Extra padding at the bottom -->
+  <div style="height: 80px;"></div>
 </section>
 
-<!-- Spacer below "Worked with" -->
-<section class="bg-white py-5">
-</section>
 
 <section id="experience" class="bg-dark text-white py-5">
   <div class="container">
@@ -244,10 +245,14 @@
   </div>
 </section>
 
-<section id="skills" class="bg-white text-dark py-5">
-  <div class="container">
-    <h2 class="text-center font-raleway mb-5">Skills</h2>
+<!-- Skills Section -->
+<section id="skills" class="text-dark py-5 position-relative overflow-hidden">
+  <!-- Particle Canvas -->
+  <canvas id="skills-canvas"></canvas>
 
+  <div class="container position-relative" style="z-index: 1;">
+    <h2 class="text-center font-raleway mb-5">Skills</h2>
+    
     <div class="scrolling-wrapper d-flex gap-4 overflow-auto pb-3 position-relative">
       <!-- Frontend -->
       <div class="skill-category-box p-4 rounded-4 bg-light shadow-sm">
@@ -416,10 +421,6 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- Spacer below -->
-<section class="bg-white py-5">
 </section>
 
 <section id="project" class="bg-dark text-white py-5">
@@ -620,7 +621,134 @@ function showProgrammingList() {
 <!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script>
+  function setupParticles(canvasId) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const mouse = { x: null, y: null, radius: 120 }; // Mouse repel zone
+
+    class Particle {
+      constructor(x, y, dx, dy, size) {
+        this.x = x;
+        this.y = y;
+        this.dx = dx;
+        this.dy = dy;
+        this.size = size;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+        ctx.fill();
+      }
+
+      update() {
+        // Bounce off edges
+        if (this.x <= 0 || this.x >= canvas.width) this.dx = -this.dx;
+        if (this.y <= 0 || this.y >= canvas.height) this.dy = -this.dy;
+
+        // Repel from mouse
+        if (mouse.x && mouse.y) {
+          const dx = this.x - mouse.x;
+          const dy = this.y - mouse.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < mouse.radius) {
+            const angle = Math.atan2(dy, dx);
+            const repelForce = (mouse.radius - distance) / mouse.radius;
+            const repelStrength = 0.3; // Softer push
+            this.dx += Math.cos(angle) * repelForce * repelStrength;
+            this.dy += Math.sin(angle) * repelForce * repelStrength;
+          }
+        }
+
+        // Add slight drift for natural motion
+        this.dx += (Math.random() - 0.5) * 0.05; // Tiny random drift
+        this.dy += (Math.random() - 0.5) * 0.05;
+
+        // Apply position and friction
+        this.x += this.dx;
+        this.y += this.dy;
+        this.dx *= 0.98; // Slow down over time
+        this.dy *= 0.98;
+
+        this.draw();
+      }
+    }
+
+    function createParticles() {
+      particles = [];
+      const count = Math.floor((canvas.width * canvas.height) / 4000); // Denser
+      for (let i = 0; i < count; i++) {
+        const size = Math.random() * 1.5 + 0.5;
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const dx = (Math.random() - 0.5) * 0.2; // Slower base speed
+        const dy = (Math.random() - 0.5) * 0.2;
+        particles.push(new Particle(x, y, dx, dy, size));
+      }
+    }
+
+    function connectParticles() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 0, 0, ${1 - distance / 100})`;
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => p.update());
+      connectParticles();
+      requestAnimationFrame(animateParticles);
+    }
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      createParticles();
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+    window.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    resizeCanvas();
+    animateParticles();
+  }
+
+  // Apply to multiple sections
+  setupParticles('education-canvas');
+  setupParticles('skills-canvas');
+</script>
+
+
+
+
 </body>
-
-
 </html>
