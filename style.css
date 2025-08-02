@@ -1,0 +1,377 @@
+/* GENERAL STYLES */
+body {
+  background-color: #0f0f0f;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  padding-top: 90px; /* Push content down for navbar height */
+}
+
+/* NAVBAR WRAPPER */
+.navbar-wrapper {
+  position: fixed; /* Make navbar follow scroll */
+  top: 20px; /* spacing from the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem); /* responsive width */
+  max-width: 1100px;
+  z-index: 999; /* stays above other content */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Make Hamburger Icon White */
+.navbar-toggler {
+  border: none; /* Remove border */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* CUSTOM NAVBAR STYLING */
+.fixed-navbar {
+  background-color: rgba(28, 28, 28, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  padding: 1.2rem 2rem;
+  border-radius: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Shrink navbar on scroll */
+.fixed-navbar.scrolled {
+  padding: 0.8rem 1.5rem;
+  background-color: rgba(28, 28, 28, 0.95);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* NAV LINKS */
+.nav-link {
+  color: #bcbcbc !important;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: white !important;
+}
+
+/* SOCIAL ICONS */
+.social-icons a {
+  color: #bcbcbc;
+  font-size: 1.2rem;
+  margin-left: 15px;
+  transition: color 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: white;
+}
+
+
+/* GLOWING CTA BUTTON */
+.btn-glow {
+  background-color: #00ff5f;
+  color: black;
+  font-weight: bold;
+  box-shadow: 0 0 15px #00ff5f;
+  transition: 0.3s;
+}
+
+.btn-glow:hover {
+  background-color: #00e255;
+  box-shadow: 0 0 25px #00ff5f;
+}
+
+/* PROFILE IMAGE */
+.profile-pic {
+  width: 320px; /* was 250px */
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #333;
+}
+
+/* 'WORKED WITH' BOX */
+.worked-with {
+  background-color: #1a1a1a;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+
+@media (min-width: 768px) {
+  .profile-pic {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+/* Center the whole logo slider */
+.logo-slider {
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+}
+
+.logo-track {
+  display: flex;
+  animation: scrollLoop 10s linear infinite;
+  width: max-content;
+}
+
+.logo-group {
+  display: flex;
+}
+
+.client-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  padding: 0 2rem;
+}
+
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+#education {
+  scroll-margin-top: 100px; /* adjusts scroll offset for navbar */
+}
+
+.bg-black {
+  background-color: #000 !important;
+}
+
+.bg-dark {
+  background-color: #1a1a1a !important;
+}
+
+.text-light {
+  color: #cccccc !important;
+}
+
+.scrolling-wrapper {
+  scroll-snap-type: x mandatory;
+}
+
+.skill-category-box {
+  min-width: 250px;
+  scroll-snap-align: start;
+  background-color: rgba(255, 255, 255, 0.6) !important; /* White with 60% opacity */
+  backdrop-filter: blur(3px); /* Optional: Adds a glassy effect */
+}
+
+.tech-box {
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-logo {
+  position: absolute;
+  opacity: 0.1;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+.skill-category-box {
+  min-width: 250px;
+}
+
+.tech-box {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.315);
+  transition: background 0.3s ease;
+  z-index: 1;
+}
+
+.tech-box span {
+  position: relative;
+  z-index: 2;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.tech-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.tech-box:hover::before {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.vertical-slideshow {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 630px; /* Show 4 items only */
+  overflow: hidden;
+  position: relative;
+}
+
+.vertical-slideshow > div {
+  animation: slide 12s linear infinite;
+}
+
+
+.project-box {
+  height: 350px; /* Big square */
+  overflow: hidden;
+  border-radius: 1.5rem;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.781);
+}
+
+.project-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .3;
+  transition: opacity 0.3s ease;
+}
+
+.project-box:hover .project-bg {
+  opacity: .7;
+}
+
+.project-content {
+  z-index: 2;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+}
+
+.btn-glow {
+  background-color: #00ff5f;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 15px #00ff5f;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  background-color: #00e255;
+  box-shadow: 0 0 25px #00ff5f;
+}
+
+.modal-content {
+  background-color: rgba(28, 28, 28, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 1.2rem;
+}
+
+.modal-header h5 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.modal-body p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Minimal arrows for carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: none; /* Remove Bootstrap default */
+  border: solid #333333; /* Dark arrows */
+  border-width: 0 3px 3px 0;
+  padding: 5px;
+}
+
+/* Left arrow: rotate to point left */
+.carousel-control-prev-icon {
+  transform: rotate(135deg);
+}
+
+/* Right arrow: rotate to point right */
+.carousel-control-next-icon {
+  transform: rotate(-45deg);
+}
+
+/* Hover: make arrows even darker */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  border-color: #000000; /* Darker on hover */
+}
+
+#education-canvas,
+#skills-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Canvas stays behind */
+  pointer-events: auto; /* Don’t block interaction */
+  background: white; /* White background */
+}
+
+section {
+  position: relative;
+  z-index: 1; /* Content stays above canvas */
+}
+
+#skills {
+  position: relative;
+  overflow: hidden;
+  background: transparent; /* ✅ No solid background */
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
